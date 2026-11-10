@@ -1,0 +1,254 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LenteLibre | Portafolio Fotográfico</title>
+
+    <meta name="description" content="Portafolio profesional de fotografía LenteLibre">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <a href="#inicio" class="logo">Lente<span>Libre</span></a>
+
+        <nav class="navbar" id="navbar">
+            <a href="#inicio">Inicio</a>
+            <a href="#galeria">Galería</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button id="themeToggle" class="theme-btn" aria-label="Cambiar tema">
+            🌙
+        </button>
+
+        <button id="menuToggle" class="menu-btn" aria-label="Abrir menú">
+            ☰
+        </button>
+    </header>
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+            <p class="subtitle">FOTOGRAFÍA PROFESIONAL</p>
+
+            <h1>Capturando momentos,<br> creando recuerdos.</h1>
+
+            <p class="hero-text">
+                Cada fotografía cuenta una historia.
+                Mi pasión es capturar emociones, paisajes
+                y momentos que merecen ser eternos.
+            </p>
+
+            <a href="#galeria" class="btn">Explorar galería</a>
+        </div>
+
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="gallery-section" id="galeria">
+
+        <div class="section-title">
+            <p class="subtitle">MI TRABAJO</p>
+            <h2>Galería fotográfica</h2>
+            <p>Una selección de momentos capturados a través de mi lente.</p>
+        </div>
+
+
+<!-- FILTROS DE LA GALERÍA -->
+<div class="filters">
+
+    <button type="button" class="filter-btn active" data-filter="todos">
+        Todos
+    </button>
+
+    <button type="button" class="filter-btn" data-filter="bodas">
+        Bodas
+    </button>
+
+    <button type="button" class="filter-btn" data-filter="retratos">
+        Retratos
+    </button>
+
+    <button type="button" class="filter-btn" data-filter="paisajes">
+        Paisajes
+    </button>
+
+    <button type="button" class="filter-btn" data-filter="eventos">
+        Eventos
+    </button>
+
+</div>
+        <!-- IMÁGENES -->
+        <div class="gallery">
+
+            <div class="gallery-item" data-category="bodas">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Fotografía de boda">
+            </div>
+
+            <div class="gallery-item" data-category="bodas">
+                <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80" alt="Pareja de novios">
+            </div>
+
+            <div class="gallery-item" data-category="bodas">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Celebración de boda">
+            </div>
+
+            <div class="gallery-item" data-category="retratos">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Retrato femenino">
+            </div>
+
+            <div class="gallery-item" data-category="retratos">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Retrato masculino">
+            </div>
+
+            <div class="gallery-item" data-category="retratos">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Retrato artístico">
+            </div>
+
+            <div class="gallery-item" data-category="paisajes">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Paisaje de montaña">
+            </div>
+
+            <div class="gallery-item" data-category="paisajes">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Montañas">
+            </div>
+
+            <div class="gallery-item" data-category="paisajes">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Paisaje natural">
+            </div>
+
+            <div class="gallery-item" data-category="eventos">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Evento musical">
+            </div>
+
+            <div class="gallery-item" data-category="eventos">
+                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80" alt="Festival">
+            </div>
+
+            <div class="gallery-item" data-category="eventos">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Evento especial">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+
+        <button class="close-lightbox" id="closeLightbox">&times;</button>
+
+        <button class="lightbox-prev" id="prevImage">&#10094;</button>
+
+        <img id="lightboxImage" src="" alt="Fotografía ampliada">
+
+        <button class="lightbox-next" id="nextImage">&#10095;</button>
+
+    </div>
+
+    <!-- SOBRE MÍ -->
+    <section class="about-section" id="sobre-mi">
+
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=900&q=80" alt="Fotógrafo profesional">
+        </div>
+
+        <div class="about-content">
+
+            <p class="subtitle">CONOCE AL FOTÓGRAFO</p>
+
+            <h2>Sobre mí</h2>
+
+            <p>
+                Soy un fotógrafo apasionado por capturar momentos
+                únicos y convertirlos en recuerdos inolvidables.
+            </p>
+
+            <p>
+                Mi trabajo combina creatividad, sensibilidad
+                artística y atención a cada detalle para contar
+                historias a través de imágenes.
+            </p>
+
+            <h3>Mi equipo</h3>
+
+            <ul>
+                <li>Cámara profesional Canon / Sony</li>
+                <li>Lentes de fotografía especializados</li>
+                <li>Iluminación profesional</li>
+                <li>Edición fotográfica avanzada</li>
+            </ul>
+
+            <h3>Servicios</h3>
+
+            <ul>
+                <li>Fotografía de bodas</li>
+                <li>Sesiones de retratos</li>
+                <li>Fotografía de paisajes</li>
+                <li>Fotografía de eventos</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact-section" id="contacto">
+
+        <div class="section-title">
+            <p class="subtitle">HABLEMOS</p>
+            <h2>Solicita tu sesión</h2>
+            <p>Cuéntame qué momento quieres capturar.</p>
+        </div>
+
+        <form id="contactForm">
+
+            <input type="text" id="nombre" placeholder="Tu nombre" required>
+
+            <input type="email" id="correo" placeholder="Tu correo electrónico" required>
+
+            <select id="servicio" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="Bodas">Fotografía de bodas</option>
+                <option value="Retratos">Sesión de retratos</option>
+                <option value="Paisajes">Fotografía de paisajes</option>
+                <option value="Eventos">Fotografía de eventos</option>
+            </select>
+
+            <input type="date" id="fecha" required>
+
+            <textarea id="mensaje" placeholder="Cuéntame los detalles de tu sesión" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Enviar solicitud</button>
+
+        </form>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <h2>LenteLibre</h2>
+
+        <p>Capturando historias, creando recuerdos.</p>
+
+        <p class="copyright">
+            © 2026 LenteLibre | Portafolio Fotográfico
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```

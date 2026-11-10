@@ -1,0 +1,477 @@
+/* ======================================
+   LENTELIBRE - PORTAFOLIO FOTOGRÁFICO
+====================================== */
+
+/* VARIABLES DE COLORES */
+:root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --text: #222222;
+    --muted: #777777;
+    --accent: #b08d57;
+    --border: #e5e5e5;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* MODO OSCURO */
+body.dark {
+    --bg: #111111;
+    --surface: #1c1c1c;
+    --text: #f5f5f5;
+    --muted: #aaaaaa;
+    --accent: #d6b06b;
+    --border: #333333;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ENCABEZADO */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.navbar {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--accent);
+}
+
+.theme-btn,
+.menu-btn {
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* PORTADA */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15)),
+        url("https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?auto=format&fit=crop&w=1800&q=90")
+        center / cover no-repeat;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+    animation: aparecer 1s ease;
+}
+
+.subtitle {
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 75px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero-text {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-size: 14px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* SECCIONES */
+.gallery-section,
+.contact-section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2,
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.section-title p:not(.subtitle) {
+    color: var(--muted);
+}
+
+/* FILTROS */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    border: 1px solid var(--border);
+    padding: 10px 22px;
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 30px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* GALERÍA */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 300px;
+    box-shadow: var(--shadow);
+    animation: aparecer 0.7s ease;
+}
+
+.gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+/* VISOR DE IMÁGENES */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    width: auto;
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.close-lightbox,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+}
+
+.close-lightbox {
+    top: 25px;
+    right: 35px;
+}
+
+.lightbox-prev {
+    left: 30px;
+}
+
+.lightbox-next {
+    right: 30px;
+}
+
+/* SOBRE MÍ */
+.about-section {
+    padding: 100px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background: var(--surface);
+}
+
+.about-image img {
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-content p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--muted);
+}
+
+.about-content h3 {
+    margin: 25px 0 12px;
+    color: var(--accent);
+}
+
+.about-content ul {
+    padding-left: 20px;
+    line-height: 2;
+}
+
+/* CONTACTO */
+.contact-section {
+    max-width: 1000px;
+    margin: auto;
+}
+
+#contactForm {
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#contactForm input,
+#contactForm select,
+#contactForm textarea {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+}
+
+#contactForm input:focus,
+#contactForm select:focus,
+#contactForm textarea:focus {
+    border-color: var(--accent);
+}
+
+#contactForm textarea {
+    resize: vertical;
+}
+
+#contactForm button {
+    width: 100%;
+}
+
+/* PIE DE PÁGINA */
+.footer {
+    background: #171717;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    color: #bbbbbb;
+    margin-bottom: 12px;
+}
+
+.copyright {
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+/* ANIMACIONES */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image img {
+        height: 400px;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+    .header {
+        padding: 18px 5%;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        display: none;
+        flex-direction: column;
+        padding: 25px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 50px 6%;
+    }
+
+    .gallery-section,
+    .contact-section,
+    .about-section {
+        padding: 70px 6%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .section-title h2,
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+    }
+}
